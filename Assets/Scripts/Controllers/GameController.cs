@@ -7,12 +7,13 @@ using Random = UnityEngine.Random;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+    [SerializeField] private Animator consumer,arm;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
     public int pointsToAdd = 0;
     private int expectedInput=1,currentInput=1;
-    private bool pressedCorrectly = true,expectingInput = true; 
-    private bool[] armPieces = new bool[4];
+    private bool pressedCorrectly = true,expectingInput = true,breakTime= false,playingAnim = false; 
+    [SerializeField]private bool[] armPieces = new bool[4];
     private int _beatCount = 0,errorMargin = 0;
     private float timer,currentTime;
 
@@ -59,19 +60,25 @@ public class GameController : MonoBehaviour
 
     private void GameCheck()
     {
-        if(currentTime<timer -(timer/5)&&expectedInput != currentInput)
+        if(currentTime<timer -(timer/10)&&expectedInput != currentInput)
         {
             armPieces[expectedInput - 1] = true;
             expectedInput = currentInput;
-            _uiController.DisplayExpectedInput(expectedInput);
-            _uiController.AddPoints(pointsToAdd-errorMargin);
-            expectingInput = true;
-            pointsToAdd = 0;
-            errorMargin = 0;
-            if (ArmCheck())
+            if(breakTime&&!playingAnim)
             {
                 clearArmPieces();
+                playingAnim = true;
+                StartCoroutine(ConsumerAnim());
             }
+            else
+            {
+                _uiController.DisplayExpectedInput(expectedInput);
+                _uiController.AddPoints(pointsToAdd-errorMargin);
+                expectingInput = true;    
+            }
+            pointsToAdd = 0;
+            errorMargin = 0;
+            
         }
     }
     public void InputCheck(int input)
@@ -120,6 +127,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private IEnumerator ConsumerAnim()
+    {
+        while (true)
+        {
+            arm.SetTrigger("Pullingout");
+            consumer.SetTrigger("WalkOut");
+            yield return new WaitForSeconds(timer);
+            consumer.SetTrigger("WalkIn");
+            arm.SetTrigger("PuttingIn");
+            breakTime = false;
+            playingAnim = false;
+            yield break;
+        }
+    }
     private IEnumerator BeatShower()
     {
         var CurrentTime = timer; // Time.deltaTime bugs man....
@@ -147,8 +168,12 @@ public class GameController : MonoBehaviour
             armPieces[expectedInput-1] = true;
             if (ArmCheck())
             {
-                currentInput = rand;
-                break;
+                if (rand != expectedInput)
+                {
+                    currentInput = rand;
+                    breakTime = true;
+                    break;
+                }
             }
             armPieces[expectedInput-1] = false;
             if(!armPieces[rand-1])
