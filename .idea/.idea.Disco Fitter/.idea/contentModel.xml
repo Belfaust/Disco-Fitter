@@ -11,9 +11,11 @@
           <e p="Controllers" t="Include">
             <e p="GameController.cs" t="Include" />
             <e p="QueueController.cs" t="Include" />
+            <e p="UIController.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
             <e p="Customers.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
