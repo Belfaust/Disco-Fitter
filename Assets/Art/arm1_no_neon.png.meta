@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: 9cd3aa156e8df754e89d5933b0416d2f
+guid: 4f6078090e51d464fb7a7db42192e54c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2389799711733970998
+    second: arm1_no_neon_0
+  - first:
+      213: 6190342962412447765
+    second: arm1_no_neon_1
+  - first:
+      213: 3677343145605546142
+    second: arm1_no_neon_2
+  - first:
+      213: -5872685756457805909
+    second: arm1_no_neon_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +133,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: arm1_no_neon_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 643
+        width: 750
+        height: 522
+      alignment: 9
+      pivot: {x: 0.8478137, y: 0.49759743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac704c9e2d9b5ded0800000000000000
+      internalID: -2389799711733970998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arm1_no_neon_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 193
+        width: 524
+        height: 444
+      alignment: 9
+      pivot: {x: 0.19125268, y: 0.21188773}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518ee60602488e550800000000000000
+      internalID: 6190342962412447765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arm1_no_neon_2
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 113
+        width: 353
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9049078b1c880330800000000000000
+      internalID: 3677343145605546142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arm1_no_neon_3
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 830
+        width: 436
+        height: 248
+      alignment: 9
+      pivot: {x: 0.8451748, y: 0.26232097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba716d85b67008ea0800000000000000
+      internalID: -5872685756457805909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
