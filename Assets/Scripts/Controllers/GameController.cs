@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
@@ -147,6 +148,10 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
+            if (_beatCount > 126)
+            {
+                SceneManager
+            }
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);
             RandomInput();
