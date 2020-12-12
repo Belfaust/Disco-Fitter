@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
       {
          input = 4;
       }
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+         GameController.instance.MoneyCheck();
+      }
    }
 
    private void Update()

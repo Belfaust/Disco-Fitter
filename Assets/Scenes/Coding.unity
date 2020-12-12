@@ -1011,9 +1011,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumer: {fileID: 1208943431}
   arm: {fileID: 1069825140}
-  BPM: 60
+  BPM: 30
   _uiController: {fileID: 1856258730}
   pointsToAdd: 0
+  expectedInput: 1
+  currentInput: 1
   armPieces: 00000000
 --- !u!4 &984896412
 Transform:
