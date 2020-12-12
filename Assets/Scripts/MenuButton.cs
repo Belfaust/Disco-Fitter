@@ -12,6 +12,8 @@ public class MenuButton : MonoBehaviour
     float delayyy;
     [SerializeField]
     float delay;
+    [SerializeField]
+    string Key;
 
     // Start is called before the first frame update
     void Start()
@@ -33,38 +35,25 @@ public class MenuButton : MonoBehaviour
         TMP_Text wholeText = GetComponentInChildren<TMP_Text>();
         char[] textarray = wholeText.text.ToCharArray();
         string mem;
+
+        wholeText.text = Key;
+        yield return new WaitForSeconds(delayyy);
         while (true)
         {
-        switch(wholeText.text)
-        {
-            case "Play":
-                wholeText.text = "Q";
-                yield return new WaitForSeconds(delayyy);
-
-                wholeText.text = "_";
-                yield return new WaitForSeconds(delayyy);
-                wholeText.text = "";
-                for (int i = 0; i < textarray.Length; i++)
-                {
-                    wholeText.text += textarray[i];
-                    mem = wholeText.text;
-                    wholeText.text += "_";
-                    yield return new WaitForSeconds(delay);
-                }
-
-                break;
-            case "Settings":
-                wholeText.text = "W";
-                break;
-            case "Credits":
-                wholeText.text = "E";
-                break;
-            case "Exit":
-                wholeText.text = "R";
-                break;
+            wholeText.text = "_";
+            yield return new WaitForSeconds(delayyy);
+            wholeText.text = "";
+            for (int i = 0; i < textarray.Length; i++)
+            {
+                wholeText.text += textarray[i];
+                mem = wholeText.text;
+                wholeText.text += "_";
+                yield return new WaitForSeconds(delay);
+                wholeText.text = mem;
+            }
+            yield break;
         }
-        }
-        wholeText.text = "XD";
+        //wholeText.text = "XD";
 
         //string wholetext = GetComponentInChildren<TMP_Text>().text.ToString();
         
