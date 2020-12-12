@@ -11,12 +11,61 @@ public class GameController : MonoBehaviour
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
     public int pointsToAdd = 0;
-    private int expectedInput=1,currentInput=1;
-    private bool pressedCorrectly = true,expectingInput = true,breakTime= false,playingAnim = false; 
+    [SerializeField]private int expectedInput=1,currentInput=1;
+    
+    private bool pressedCorrectly = true,expectingInput = true,breakTime= false,playingAnim = false,flyingMoney = false; 
     [SerializeField]private bool[] armPieces = new bool[4];
-    private int _beatCount = 0,errorMargin = 0;
+    private int _beatCount = 0;
     private float timer,currentTime;
 
+    public void InputCheck(int input)
+    {
+        if (expectingInput == true)
+        {
+            if (input == expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .2f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 50;
+                }
+                else if (currentTime < (timer * .7f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 40;
+                }
+            }
+            else if(input != expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .7f))
+                {
+                    pointsToAdd = 30;
+                } 
+            }
+            else if(input == expectedInput&&currentInput != expectedInput)
+            {
+                if (currentTime >timer - (timer * .2f))
+                {
+                    pointsToAdd = 50;
+                }
+            }
+        }
+    }
+    public void MoneyCheck()
+    {
+        if (flyingMoney)
+        {
+            if (currentTime < (timer * .2f))
+            {
+                _uiController.AddPoints(40);
+            }
+            else if (currentTime < (timer * .7f))
+            {
+                _uiController.AddPoints(10);
+            }
+            flyingMoney = false;
+        }
+    }
     bool ArmCheck()
     {
         int armPiecesPlaced = 0;
@@ -56,15 +105,17 @@ public class GameController : MonoBehaviour
     {
         if(currentTime<timer -(timer/10)&&expectedInput != currentInput)
         {
+            if (flyingMoney)
+            {
+                _uiController.AddPoints(10);
+                flyingMoney = false;
+            }
             if (!breakTime)
             {
                 armPieces[expectedInput - 1] = true;
                 expectedInput = currentInput; 
                 _uiController.DisplayExpectedInput(expectedInput);
-                _uiController.AddPoints(pointsToAdd-errorMargin);
                 expectingInput = true;
-                pointsToAdd = 0;
-                errorMargin = 0;
             }
             else
             {
@@ -74,43 +125,13 @@ public class GameController : MonoBehaviour
                     playingAnim = true;
                 }
                 _uiController.DisplayExpectedInput(0);
+                expectedInput = currentInput;
             }
+            _uiController.AddPoints(pointsToAdd);
+            pointsToAdd = 0;
         }
     }
-    public void InputCheck(int input)
-    {
-        if (expectingInput == true)
-        {
-            if (input == expectedInput&&currentInput == expectedInput)
-            {
-                if (currentTime < (timer * .2f))
-                {
-                    expectingInput = false;
-                    pointsToAdd = 100;
-                }
-                else if (currentTime < (timer * .7f))
-                {
-                    expectingInput = false;
-                    pointsToAdd = 50;
-                }
-            }
-            else if(input != expectedInput&&currentInput == expectedInput)
-            {
-                if (currentTime < (timer * .7f))
-                {
-                    pointsToAdd = 30;
-                    errorMargin = 20;
-                } 
-            }
-            else if(input == expectedInput&&currentInput != expectedInput)
-            {
-                if (currentTime >timer - (timer * .2f))
-                {
-                    pointsToAdd = 100;
-                }
-            }
-        }
-    }
+    
     private IEnumerator BeatTimer()
     {
         while (true)
@@ -127,6 +148,7 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
+            flyingMoney = true;
             yield return new WaitForSeconds(timer);
             arm.SetTrigger("Pullingout");
             consumer.SetTrigger("WalkOut");
@@ -137,6 +159,8 @@ public class GameController : MonoBehaviour
             clearArmPieces();
             breakTime = false;
             playingAnim = false;
+            expectingInput = true;
+            _uiController.DisplayExpectedInput(currentInput);
             yield break;
         }
     }

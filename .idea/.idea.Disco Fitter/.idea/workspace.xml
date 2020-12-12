@@ -22,7 +22,7 @@
     <list default="true" id="6f7cf002-307b-4918-84a9-53430a7bb560" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Models/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +45,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/QueueController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Models/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Models/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" />
       </list>
     </option>
@@ -121,5 +121,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs</url>
+          <line>22</line>
+          <properties documentPath="D:\Unity projects\Disco-Fitter\Disco Fitter\Assets\Scripts\Controllers\GameController.cs" initialLine="21">
+            <startOffsets>
+              <option value="780" />
+            </startOffsets>
+            <endOffsets>
+              <option value="807" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
