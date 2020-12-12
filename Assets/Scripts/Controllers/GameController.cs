@@ -17,6 +17,40 @@ public class GameController : MonoBehaviour
     private int _beatCount = 0,errorMargin = 0;
     private float timer,currentTime;
 
+    public void InputCheck(int input)
+    {
+        if (expectingInput == true)
+        {
+            if (input == expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .2f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 100;
+                }
+                else if (currentTime < (timer * .7f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 50;
+                }
+            }
+            else if(input != expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .7f))
+                {
+                    pointsToAdd = 30;
+                    errorMargin = 20;
+                } 
+            }
+            else if(input == expectedInput&&currentInput != expectedInput)
+            {
+                if (currentTime >timer - (timer * .2f))
+                {
+                    pointsToAdd = 100;
+                }
+            }
+        }
+    }
     bool ArmCheck()
     {
         int armPiecesPlaced = 0;
@@ -74,43 +108,11 @@ public class GameController : MonoBehaviour
                     playingAnim = true;
                 }
                 _uiController.DisplayExpectedInput(0);
+                expectedInput = currentInput;
             }
         }
     }
-    public void InputCheck(int input)
-    {
-        if (expectingInput == true)
-        {
-            if (input == expectedInput&&currentInput == expectedInput)
-            {
-                if (currentTime < (timer * .2f))
-                {
-                    expectingInput = false;
-                    pointsToAdd = 100;
-                }
-                else if (currentTime < (timer * .7f))
-                {
-                    expectingInput = false;
-                    pointsToAdd = 50;
-                }
-            }
-            else if(input != expectedInput&&currentInput == expectedInput)
-            {
-                if (currentTime < (timer * .7f))
-                {
-                    pointsToAdd = 30;
-                    errorMargin = 20;
-                } 
-            }
-            else if(input == expectedInput&&currentInput != expectedInput)
-            {
-                if (currentTime >timer - (timer * .2f))
-                {
-                    pointsToAdd = 100;
-                }
-            }
-        }
-    }
+    
     private IEnumerator BeatTimer()
     {
         while (true)
@@ -137,6 +139,7 @@ public class GameController : MonoBehaviour
             clearArmPieces();
             breakTime = false;
             playingAnim = false;
+            _uiController.DisplayExpectedInput(currentInput);
             yield break;
         }
     }
