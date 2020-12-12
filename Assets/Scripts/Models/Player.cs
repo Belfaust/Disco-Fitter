@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
       get => currentInput;
       set { 
       currentInput = value;
-      
+      GameController.instance.InputCheck(value);
       }
 }
 
@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
       {
          input = 1;
       }
-
       if (Input.GetKeyDown(KeyCode.W))
       {
          input = 2;
