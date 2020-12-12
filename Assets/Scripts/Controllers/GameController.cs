@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
                 clearArmPieces();
                 playingAnim = true;
                 StartCoroutine(ConsumerAnim());
+                _uiController.DisplayExpectedInput(0);
             }
             else
             {
@@ -136,6 +137,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("WalkIn");
             arm.SetTrigger("PuttingIn");
+            yield return new WaitForSeconds(timer);
             breakTime = false;
             playingAnim = false;
             yield break;
