@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 356380091}
   - component: {fileID: 356380090}
   m_Layer: 5
-  m_Name: LogoutNote
+  m_Name: README
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42, y: 620}
+  m_AnchoredPosition: {x: -42, y: 658}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356380090
@@ -183,7 +183,7 @@ MonoBehaviour:
     Break Time,nie wiem czy b\u0119dziemy chcieli mie\u0107 expect inpu w grze ale
     p\xF3ki co zostawiam go w intencjach testowych\nJe\u015Bli b\u0119dziecie mnie
     natychmiast potrzebowa\u0107 dzwoncie :794 771 151\npewnie ob\xF3dze si\u0119
-    o 14/15"
+    o 14/15\nMuzyka mo\u017Ce by\u0107 problemem nie wiem ile czasu to zajmie....."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1888,7 +1888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 749}
+  m_AnchoredPosition: {x: 0, y: 949}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2027696271
