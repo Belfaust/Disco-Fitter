@@ -1100,12 +1100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737774cd6e6e8914bb176ffcc4ca5176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsToAdd: 0
   consumer: {fileID: 1208943431}
   arm: {fileID: 1069825140}
   BPM: 90
   _uiController: {fileID: 1856258730}
-  pointsToAdd: 0
+  expectedInput: 1
+  currentInput: 1
   armPieces: 00000000
+  armResetPos: {x: 0, y: 0, z: 0}
 --- !u!4 &984896412
 Transform:
   m_ObjectHideFlags: 0

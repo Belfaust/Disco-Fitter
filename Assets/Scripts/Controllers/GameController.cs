@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour
         {
             if (_beatCount > 126)
             {
-                SceneManager
+                SceneManager.LoadScene("EndScreen");
             }
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);
