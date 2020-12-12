@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField]private Slider BeatShower;
-
+    [SerializeField] private TextMeshProUGUI expectedInput;
+    [SerializeField] private TextMeshProUGUI currentPoints;
+    [SerializeField] private Image IndicatorImage;
+    [SerializeField] private Color[] ColorPallete;
+    private int _points = 0;
     public void DisplayBeat(float currentTime)
     {
-        Debug.Log(currentTime);
         BeatShower.value = currentTime;
     }
 
@@ -17,8 +21,20 @@ public class UIController : MonoBehaviour
     {
         BeatShower.maxValue = maxValue;
     }
-    void Update()
+
+    public void DisplayExpectedInput(int expInput)
     {
-        
+        expectedInput.text ="Expected Input: "+ expInput.ToString();
+    }
+
+    public void AddPoints(int pointsToAdd)
+    {
+        _points += pointsToAdd;
+        currentPoints.text = "Points : " + _points.ToString();
+    }
+
+    public void ChangeImageColor(int index)
+    {
+        IndicatorImage.color = ColorPallete[index];
     }
 }

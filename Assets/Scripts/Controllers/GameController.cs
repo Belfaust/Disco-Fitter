@@ -1,17 +1,40 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
-    private float timer;
-    private float currentTime;
+    public int pointsToAdd = 0;
+    private int expectedInput=1,currentInput=1;
+    private bool pressedCorrectly = true,expectingInput = true; 
+    private bool[] armPieces = new bool[4];
+    private int _beatCount = 0,errorMargin = 0;
+    private float timer,currentTime;
+
+    bool ArmCheck()
+    {
+        int armPiecesPlaced = 0;
+        for (int i = 0; i < armPieces.Length; i++)
+        {
+            if (armPieces[i] == true)
+            {
+                armPiecesPlaced++;
+            }
+        }
+        if (armPiecesPlaced == armPieces.Length)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private void Start()
     {
         if (instance == null)
@@ -22,15 +45,68 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
-        
+        _uiController.DisplayExpectedInput(expectedInput);
+        _uiController.AddPoints(0);
         timer = 1 / (BPM / 60);
         _uiController.SetMaxBeatValue(timer);
         StartCoroutine(BeatTimer());
     }
 
+    private void Update()
+    {
+        GameCheck();
+    }
+
+    private void GameCheck()
+    {
+        if(currentTime<timer -(timer/5)&&expectedInput != currentInput)
+        {
+            armPieces[expectedInput - 1] = true;
+            expectedInput = currentInput;
+            _uiController.DisplayExpectedInput(expectedInput);
+            _uiController.AddPoints(pointsToAdd-errorMargin);
+            expectingInput = true;
+            pointsToAdd = 0;
+            errorMargin = 0;
+            if (ArmCheck())
+            {
+                clearArmPieces();
+            }
+        }
+    }
     public void InputCheck(int input)
     {
-        
+        if (expectingInput == true)
+        {
+            if (input == expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .2f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 100;
+                }
+                else if (currentTime < (timer * .7f))
+                {
+                    expectingInput = false;
+                    pointsToAdd = 50;
+                }
+            }
+            else if(input != expectedInput&&currentInput == expectedInput)
+            {
+                if (currentTime < (timer * .7f))
+                {
+                    pointsToAdd = 30;
+                    errorMargin = 20;
+                } 
+            }
+            else if(input == expectedInput&&currentInput != expectedInput)
+            {
+                if (currentTime >timer - (timer * .2f))
+                {
+                    pointsToAdd = 100;
+                }
+            }
+        }
     }
     private IEnumerator BeatTimer()
     {
@@ -38,17 +114,47 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);
+            RandomInput();
+            _uiController.ChangeImageColor(currentInput-1);
+            _beatCount++;
         }
     }
 
     private IEnumerator BeatShower()
     {
-         currentTime = timer;
-        while(currentTime>0)
+        var CurrentTime = timer; // Time.deltaTime bugs man....
+        while(CurrentTime>0)
         {
-            currentTime -= Time.deltaTime;
-            _uiController.DisplayBeat(currentTime);
-            yield return new WaitForSeconds(0);
+            CurrentTime -= Time.deltaTime;
+            currentTime = CurrentTime;
+            _uiController.DisplayBeat(CurrentTime);
+            yield return null;
+        }
+    }
+
+    private void clearArmPieces()
+    {
+        for (int i = 0; i < armPieces.Length; i++)
+        {
+            armPieces[i] = false;
+        }
+    }
+    private void RandomInput()
+    {
+        while(expectedInput == currentInput)
+        {
+            var rand = Random.Range(1, 5);
+            armPieces[expectedInput-1] = true;
+            if (ArmCheck())
+            {
+                currentInput = rand;
+                break;
+            }
+            armPieces[expectedInput-1] = false;
+            if(!armPieces[rand-1])
+            {
+                currentInput = rand;
+            }
         }
     }
 }

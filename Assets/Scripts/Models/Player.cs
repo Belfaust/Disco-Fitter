@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,6 @@ public class Player : MonoBehaviour
       GameController.instance.InputCheck(value);
       }
 }
-
    private void InputSystem()
    {
       if (Input.GetKeyDown(KeyCode.Q))
@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
       {
          input = 2;
       }
-
       if (Input.GetKeyDown(KeyCode.E))
       {
          input = 3;
@@ -34,5 +33,10 @@ public class Player : MonoBehaviour
       {
          input = 4;
       }
+   }
+
+   private void Update()
+   {
+      InputSystem();
    }
 }
