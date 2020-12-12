@@ -52,34 +52,29 @@ public class GameController : MonoBehaviour
         _uiController.SetMaxBeatValue(timer);
         StartCoroutine(BeatTimer());
     }
-
-    private void Update()
-    {
-        GameCheck();
-    }
-
     private void GameCheck()
     {
         if(currentTime<timer -(timer/10)&&expectedInput != currentInput)
         {
-            armPieces[expectedInput - 1] = true;
-            expectedInput = currentInput;
-            if(breakTime&&!playingAnim)
+            if (!breakTime)
             {
-                clearArmPieces();
-                playingAnim = true;
-                StartCoroutine(ConsumerAnim());
-                _uiController.DisplayExpectedInput(0);
+                armPieces[expectedInput - 1] = true;
+                expectedInput = currentInput; 
+                _uiController.DisplayExpectedInput(expectedInput);
+                _uiController.AddPoints(pointsToAdd-errorMargin);
+                expectingInput = true;
+                pointsToAdd = 0;
+                errorMargin = 0;
             }
             else
             {
-                _uiController.DisplayExpectedInput(expectedInput);
-                _uiController.AddPoints(pointsToAdd-errorMargin);
-                expectingInput = true;    
+                if (!playingAnim)
+                {
+                    StartCoroutine(ConsumerAnim());
+                    playingAnim = true;
+                }
+                _uiController.DisplayExpectedInput(0);
             }
-            pointsToAdd = 0;
-            errorMargin = 0;
-            
         }
     }
     public void InputCheck(int input)
@@ -132,13 +127,14 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(timer);
             arm.SetTrigger("Pullingout");
             consumer.SetTrigger("WalkOut");
-            yield return new WaitForSeconds(timer+timer/10);
-            clearArmPieces();
+            yield return new WaitForSeconds(timer);
             consumer.SetTrigger("WalkIn");
             arm.SetTrigger("PuttingIn");
-            yield return new WaitForSeconds(timer+timer/10);
+            yield return new WaitForSeconds((timer*2)+(timer/10));
+            clearArmPieces();
             breakTime = false;
             playingAnim = false;
             yield break;
@@ -152,6 +148,7 @@ public class GameController : MonoBehaviour
             CurrentTime -= Time.deltaTime;
             currentTime = CurrentTime;
             _uiController.DisplayBeat(CurrentTime);
+            GameCheck();
             yield return null;
         }
     }

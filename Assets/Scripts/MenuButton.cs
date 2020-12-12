@@ -18,9 +18,9 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ButtonAnimation());
         delay = menuMenager.delay;
         delayyy = menuMenager.delayyy;
+        StartCoroutine(ButtonAnimation());
     }
 
     // Update is called once per frame
@@ -36,10 +36,10 @@ public class MenuButton : MonoBehaviour
         char[] textarray = wholeText.text.ToCharArray();
         string mem;
 
-        wholeText.text = Key;
-        yield return new WaitForSeconds(delayyy);
         while (true)
         {
+            wholeText.text = Key;
+            yield return new WaitForSeconds(delayyy);
             wholeText.text = "_";
             yield return new WaitForSeconds(delayyy);
             wholeText.text = "";
@@ -58,7 +58,5 @@ public class MenuButton : MonoBehaviour
         //string wholetext = GetComponentInChildren<TMP_Text>().text.ToString();
         
         //char[] textarray = wholetext.ToCharArray();
-
-        yield return null;
     }
 }
