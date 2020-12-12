@@ -28,6 +28,10 @@ public class GameController : MonoBehaviour
         StartCoroutine(BeatTimer());
     }
 
+    public void InputCheck(int input)
+    {
+        
+    }
     private IEnumerator BeatTimer()
     {
         while (true)
