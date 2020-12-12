@@ -134,10 +134,11 @@ public class GameController : MonoBehaviour
         {
             arm.SetTrigger("Pullingout");
             consumer.SetTrigger("WalkOut");
-            yield return new WaitForSeconds(timer);
+            yield return new WaitForSeconds(timer+timer/10);
+            clearArmPieces();
             consumer.SetTrigger("WalkIn");
             arm.SetTrigger("PuttingIn");
-            yield return new WaitForSeconds(timer);
+            yield return new WaitForSeconds(timer+timer/10);
             breakTime = false;
             playingAnim = false;
             yield break;
