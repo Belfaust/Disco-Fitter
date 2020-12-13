@@ -183,8 +183,8 @@ public class GameController : MonoBehaviour
             arm.SetTrigger("Pullingout");
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("ThrowMoney");
-            flyingMoney = true;
             yield return new WaitForSeconds(timer);
+            flyingMoney = true;
             consumer.SetTrigger("WalkOut");
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("WalkIn");

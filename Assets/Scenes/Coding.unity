@@ -468,12 +468,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 962115079}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &496398939 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1710918473071421868, guid: 490fa96a5b126e249b4131b189ddf4ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 1657685663449950676}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &501040829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -599,6 +593,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 501040829}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &515245846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2067281908, guid: 490fa96a5b126e249b4131b189ddf4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657685663449950676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &533839907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,7 +2139,7 @@ MonoBehaviour:
   BeatShower: {fileID: 365536824}
   expectedInput: {fileID: 429223483}
   currentPoints: {fileID: 944018693}
-  IndicatorImage: {fileID: 496398939}
+  IndicatorImage: {fileID: 515245846}
   ColorPallete:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.19607845, b: 1, a: 1}
