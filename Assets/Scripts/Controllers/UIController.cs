@@ -29,8 +29,9 @@ public class UIController : MonoBehaviour
 
     public void AddPoints(int pointsToAdd)
     {
+        GameController.instance.points = _points;
         _points += pointsToAdd;
-        currentPoints.text = "Points : " + _points.ToString();
+        currentPoints.text =  _points.ToString();
     }
 
     public void ChangeImageColor(int index)
