@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -323,6 +323,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &407672083 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6564738365750179372, guid: a384ef940bd22134ba794f8e7977dafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1892150310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &429223481
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +462,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429223481}
   m_CullTransparentMesh: 0
+--- !u!95 &436474769 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3439552797519331511, guid: d9be392f1fe9a9145b8ed3f73cccf43b,
+    type: 3}
+  m_PrefabInstance: {fileID: 962115079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &501040829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -827,6 +839,12 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!95 &773924874 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 216207955506682065, guid: 2643e0edeeb77bf4ca48efd820aa070f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1445269051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &809794022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1418,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsToAdd: 0
+  points: 0
+  Tools:
+  - {fileID: 773924874}
+  - {fileID: 1596709995}
+  - {fileID: 407672083}
+  - {fileID: 436474769}
   consumer: {fileID: 1208943431}
   arm: {fileID: 1321320025}
   BPM: 60
@@ -1951,6 +1975,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565883556}
   m_CullTransparentMesh: 0
+--- !u!95 &1596709995 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1802566354589498630, guid: 754d2f78fd01c104aaabd2d576ef6ccb,
+    type: 3}
+  m_PrefabInstance: {fileID: 501040829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1831140830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,7 +2491,7 @@ PrefabInstance:
     - target: {fileID: 1657685662153873281, guid: 490fa96a5b126e249b4131b189ddf4ef,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 52.428074
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 1657685662153873281, guid: 490fa96a5b126e249b4131b189ddf4ef,
         type: 3}
