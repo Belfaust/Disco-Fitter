@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     public int pointsToAdd = 0,points;
-    [SerializeField] private Animator[] Tools;
+    [SerializeField] private Animator[] Tools,Buttons;
     [SerializeField] private Animator consumer,arm,money;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
@@ -32,11 +32,11 @@ public class GameController : MonoBehaviour
             Destroy(this);
         }
         timer = 1 / (BPM / 60);
-        _uiController.SetMaxBeatValue(timer);
         StartCoroutine(StartGame());
     }
     public void InputCheck(int input)
     {
+        Buttons[input-1].Play("Pressed");
         if (expectingInput == true)
         {
             Tools[input-1].SetTrigger("Activate");
@@ -178,7 +178,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("ThrowMoney");
             yield return new WaitForSeconds(timer);
-            Debug.Log(currentTime);
+            yield return new WaitUntil(() => currentTime < .9f);
             flyingMoney = true;
             money.Play("FlyingCash");
             consumer.SetTrigger("WalkOut");
@@ -201,7 +201,7 @@ public class GameController : MonoBehaviour
         {
             CurrentTime -= Time.deltaTime;
             currentTime = CurrentTime;
-            if (currentTime < (timer * .7f))
+            if (currentTime < (timer * .8f))
             {
                 _uiController.ChangeIntensity(1-currentTime);
             }

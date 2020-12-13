@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField]private Slider BeatShower;
     [SerializeField] private TextMeshProUGUI expectedInput;
     [SerializeField] private TextMeshProUGUI currentPoints;
     [SerializeField] private Image IndicatorImage;
@@ -17,16 +16,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private Vector3 PointsDisplayTarget;
     private int currTextIndex;
     private int _points = 0;
-    public void DisplayBeat(float currentTime)
-    {
-        BeatShower.value = currentTime;
-    }
-
-    public void SetMaxBeatValue(float maxValue)
-    {
-        BeatShower.maxValue = maxValue;
-    }
-
     public void DisplayExpectedInput(int expInput)
     {
         expectedInput.text ="Expected Input: "+ expInput.ToString();
