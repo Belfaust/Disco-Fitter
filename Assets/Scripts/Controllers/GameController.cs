@@ -32,7 +32,6 @@ public class GameController : MonoBehaviour
             Destroy(this);
         }
         _uiController.DisplayExpectedInput(expectedInput);
-        _uiController.AddPoints(0);
         timer = 1 / (BPM / 60);
         _uiController.SetMaxBeatValue(timer);
         StartCoroutine(StartGame());
@@ -41,18 +40,15 @@ public class GameController : MonoBehaviour
     {
         if (expectingInput == true)
         {
-         
             Tools[input-1].SetTrigger("Activate");
             if (input == expectedInput&&currentInput == expectedInput)
             {
                 if (currentTime < (timer * .2f))
                 {
-                    expectingInput = false;
                     pointsToAdd = 50;
                 }
                 else if (currentTime < (timer * .7f))
                 {
-                    expectingInput = false;
                     pointsToAdd = 40;
                 }
             }
@@ -70,6 +66,8 @@ public class GameController : MonoBehaviour
                     pointsToAdd = 50;
                 }
             }
+            _uiController.AddPoints(pointsToAdd);
+            expectingInput = false;
         }
     }
     public void MoneyCheck()
@@ -143,7 +141,6 @@ public class GameController : MonoBehaviour
                 _uiController.DisplayExpectedInput(0);
                 expectedInput = currentInput;
             }
-            _uiController.AddPoints(pointsToAdd);
             pointsToAdd = 0;
         }
     }
