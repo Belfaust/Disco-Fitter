@@ -13,10 +13,14 @@
             <e p="QueueController.cs" t="Include" />
             <e p="UIController.cs" t="Include" />
           </e>
+          <e p="EndScreen.cs" t="Include" />
+          <e p="MenuButton.cs" t="Include" />
+          <e p="MenuMenager.cs" t="Include" />
           <e p="Models" t="Include">
             <e p="Customers.cs" t="Include" />
             <e p="Player.cs" t="Include" />
           </e>
+          <e p="RandomOfsetAnimation.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
