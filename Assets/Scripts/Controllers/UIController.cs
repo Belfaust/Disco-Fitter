@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     [SerializeField]private Slider BeatShower;
     [SerializeField] private TextMeshProUGUI expectedInput;
     [SerializeField] private TextMeshProUGUI currentPoints;
-    [SerializeField] private Image IndicatorImage;
+    [SerializeField] private SpriteRenderer IndicatorImage;
     [SerializeField] private Color[] ColorPallete;
     private int _points = 0;
     public void DisplayBeat(float currentTime)
@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
 
     public void AddPoints(int pointsToAdd)
     {
+        GameController.instance.points = _points;
         _points += pointsToAdd;
         currentPoints.text = "Points : " + _points.ToString();
     }

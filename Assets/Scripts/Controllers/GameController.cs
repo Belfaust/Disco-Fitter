@@ -2,12 +2,14 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public int pointsToAdd = 0;
+    public int pointsToAdd = 0,points;
+    [SerializeField] private Animator[] Tools;
     [SerializeField] private Animator consumer,arm;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
@@ -18,10 +20,28 @@ public class GameController : MonoBehaviour
     private int _beatCount = 0;
     private float timer,currentTime;
 
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
+        _uiController.DisplayExpectedInput(expectedInput);
+        _uiController.AddPoints(0);
+        timer = 1 / (BPM / 60);
+        _uiController.SetMaxBeatValue(timer);
+        StartCoroutine(StartGame());
+    }
     public void InputCheck(int input)
     {
         if (expectingInput == true)
         {
+            Tools[input-1].SetTrigger("Activate");
             if (input == expectedInput&&currentInput == expectedInput)
             {
                 if (currentTime < (timer * .2f))
@@ -85,28 +105,12 @@ public class GameController : MonoBehaviour
             return false;
         }
     }
-    private void Start()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-        _uiController.DisplayExpectedInput(expectedInput);
-        _uiController.AddPoints(0);
-        timer = 1 / (BPM / 60);
-        _uiController.SetMaxBeatValue(timer);
-        StartCoroutine(StartGame());
-    }
-
     IEnumerator StartGame()
     {
         while (true)
         {
             yield return new WaitUntil(() => Input.anyKeyDown);
+            GetComponent<AudioSource>().Play();
             _uiController.ChangeImageColor(currentInput - 1);
             StartCoroutine(BeatTimer());
             yield break;
@@ -147,6 +151,16 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
+            if (_beatCount > 125)
+            {
+                PlayerPrefs.GetInt("HighScore",0);
+                if (PlayerPrefs.GetInt("HighScore") < points)
+                {
+                    PlayerPrefs.SetInt("HighScore",points);
+                }
+                StopAllCoroutines();
+                SceneManager.LoadScene("EndScreen");
+            }
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);
             RandomInput();
@@ -162,15 +176,19 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
+            _uiController.ChangeImageColor(4);
+            yield return new WaitForSeconds(timer);
+            consumer.SetTrigger("Dance");
+            arm.SetTrigger("Pullingout");
+            yield return new WaitForSeconds(timer);
+            consumer.SetTrigger("ThrowMoney");
             flyingMoney = true;
             yield return new WaitForSeconds(timer);
-            arm.SetTrigger("Pullingout");
             consumer.SetTrigger("WalkOut");
             yield return new WaitForSeconds(timer);
-            _uiController.ChangeImageColor(4);
             consumer.SetTrigger("WalkIn");
             arm.SetTrigger("PuttingIn");
-            yield return new WaitForSeconds((timer*2)+(timer/10));
+            yield return new WaitForSeconds((timer)+(timer/10));
             clearArmPieces();
             breakTime = false;
             playingAnim = false;
