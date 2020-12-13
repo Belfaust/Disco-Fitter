@@ -48,9 +48,9 @@ public class MenuMenager : MonoBehaviour
 
     }
 
-    public void EnterGameplay()
+    public void EnterGameplay(string SceneName)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneName);
     }
 
     public void OpenCloseSettings()
