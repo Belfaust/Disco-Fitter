@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public int pointsToAdd = 0,points;
+    public int pointsToAdd = 0;
     [SerializeField] private Animator consumer,arm;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
@@ -91,7 +91,6 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
         }
         else
         {
@@ -110,7 +109,6 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitUntil(() => Input.anyKeyDown);
             _uiController.ChangeImageColor(currentInput - 1);
-            GetComponent<AudioSource>().Play();
             StartCoroutine(BeatTimer());
             yield break;
         }
@@ -150,15 +148,9 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            if (_beatCount > 125)
+            if (_beatCount > 126)
             {
-                PlayerPrefs.GetInt("HighScore",0);
-                if (PlayerPrefs.GetInt("HighScore") < points)
-                {
-                    PlayerPrefs.SetInt("HighScore",points);
-                }
-                StopAllCoroutines();
-                SceneManager.LoadScene("EndScreen");
+                //SceneManager
             }
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);
