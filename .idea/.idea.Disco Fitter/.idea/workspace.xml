@@ -21,17 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6f7cf002-307b-4918-84a9-53430a7bb560" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Drill.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Drill.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/DrillSelect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/DrillSelect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/GrabberArm.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/GrabberArm.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/GrabberSelect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/GrabberSelect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/SolderingArm.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/SolderingArm.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/SolderingSelect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/SolderingSelect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Wrench.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Wrench.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/WrenchSelect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/WrenchSelect.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Arm.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Arm.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Coding.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Coding.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
