@@ -38,9 +38,9 @@ public class MenuButton : MonoBehaviour
 
         
         
-        if (wholeText.text == "Play")
-        {
-            float memsize = wholeText.fontSize;
+        //if (wholeText.text == "Play")
+        //{
+            /*float memsize = wholeText.fontSize;
             wholeText.fontSize = 50;
             wholeText.text = Key;
             yield return new WaitForSeconds(delayyy);
@@ -68,11 +68,11 @@ public class MenuButton : MonoBehaviour
             }
             wholeText.fontSize = memsize;
 
-            wholeText.text = "Play";
+            wholeText.text = "Play";*/
 
-        }
-        else
-        {
+        //}
+        //else
+        ///{
             wholeText.text = Key;
             yield return new WaitForSeconds(delayyy);
             wholeText.text = "_";
@@ -93,7 +93,7 @@ public class MenuButton : MonoBehaviour
             }
 
             wholeText.text = mem;
-        }
+        //}
 
         yield return null;
     }
