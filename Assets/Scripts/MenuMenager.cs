@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,6 +41,27 @@ public class MenuMenager : MonoBehaviour
 
         creditsPanel.SetActive(false);
         isCreditsPanel = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            EnterGameplay("WorkJuru");
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //ok
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RollCredits();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+          ExitGame();
+        }
+
     }
 
     // Update is called once per frame
