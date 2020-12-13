@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public int pointsToAdd = 0,points;
     [SerializeField] private Animator[] Tools;
-    [SerializeField] private Animator consumer,arm;
+    [SerializeField] private Animator consumer,arm,money;
     [SerializeField]private float BPM;
     [SerializeField] private UIController _uiController;
     [SerializeField]private int expectedInput=1,currentInput=1;
@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
-        _uiController.DisplayExpectedInput(expectedInput);
         timer = 1 / (BPM / 60);
         _uiController.SetMaxBeatValue(timer);
         StartCoroutine(StartGame());
@@ -127,8 +126,7 @@ public class GameController : MonoBehaviour
             if (!breakTime)
             {
                 armPieces[expectedInput - 1] = true;
-                expectedInput = currentInput; 
-                _uiController.DisplayExpectedInput(expectedInput);
+                expectedInput = currentInput;
                 expectingInput = true;
             }
             else
@@ -138,7 +136,6 @@ public class GameController : MonoBehaviour
                     StartCoroutine(ConsumerAnim());
                     playingAnim = true;
                 }
-                _uiController.DisplayExpectedInput(0);
                 expectedInput = currentInput;
             }
             pointsToAdd = 0;
@@ -181,7 +178,9 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("ThrowMoney");
             yield return new WaitForSeconds(timer);
+            Debug.Log(currentTime);
             flyingMoney = true;
+            money.Play("FlyingCash");
             consumer.SetTrigger("WalkOut");
             yield return new WaitForSeconds(timer);
             consumer.SetTrigger("WalkIn");
@@ -192,7 +191,6 @@ public class GameController : MonoBehaviour
             playingAnim = false;
             expectingInput = true;
             _uiController.ChangeImageColor(currentInput - 1);
-            _uiController.DisplayExpectedInput(currentInput);
             yield break;
         }
     }
@@ -207,7 +205,6 @@ public class GameController : MonoBehaviour
             {
                 _uiController.ChangeIntensity(1-currentTime);
             }
-            _uiController.DisplayBeat(CurrentTime);
             GameCheck();
             yield return null;
         }
