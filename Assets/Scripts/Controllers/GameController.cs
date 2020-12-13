@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     {
         if (expectingInput == true)
         {
+         
             Tools[input-1].SetTrigger("Activate");
             if (input == expectedInput&&currentInput == expectedInput)
             {
