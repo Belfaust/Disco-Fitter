@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     private bool pressedCorrectly = true,expectingInput = true,breakTime= false,playingAnim = false,flyingMoney = false; 
     private int _beatCount = 0;
     private float timer,currentTime;
+    public bool completedLevel;
 
     private void Start()
     {
@@ -146,7 +147,7 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            if (_beatCount > 125)
+            if (_beatCount > 3)
             {
                 PlayerPrefs.GetInt("HighScore",0);
                 if (PlayerPrefs.GetInt("HighScore") < points)
@@ -154,7 +155,8 @@ public class GameController : MonoBehaviour
                     PlayerPrefs.SetInt("HighScore",points);
                 }
                 StopAllCoroutines();
-                SceneManager.LoadScene("EndScreen");
+                completedLevel = true;
+                SceneManager.LoadScene("MainMenu");
             }
             StartCoroutine(BeatShower());
             yield return new WaitForSeconds(timer);

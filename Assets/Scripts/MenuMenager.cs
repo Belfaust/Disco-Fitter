@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuMenager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject creditsPanel;
+    
+    public GameObject creditsPanel;
     [SerializeField]
     public float delayyy;
     [SerializeField]
@@ -42,12 +43,28 @@ public class MenuMenager : MonoBehaviour
         isCreditsPanel = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            EnterGameplay("WorkJuru");
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //ok
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RollCredits();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+          ExitGame();
+        }
 
     }
 
+    // Update is called once per frame
     public void EnterGameplay(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
