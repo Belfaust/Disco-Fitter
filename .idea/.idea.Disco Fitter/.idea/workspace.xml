@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f7cf002-307b-4918-84a9-53430a7bb560" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/PullingOutArm.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/PullingOutArm.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/PuttingInArm.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/PuttingInArm.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Arm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Arm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Disco Fitter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/FlyingCash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/FlyingCash.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Moneys.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Moneys.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorkJuru.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorkJuru.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/../../Clockwork/Assets/Scripts/Models/Item.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/cc/a4605969/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11BD515F-D2A0-4526-8509-D23726DE0F46/c4/985f0486/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/3e/d4624049/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/2019.4.12f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuMenager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,8 +55,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Models/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EndScreen.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/GameController.cs" />
       </list>
     </option>
   </component>
