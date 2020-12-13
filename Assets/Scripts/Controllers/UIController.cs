@@ -38,11 +38,11 @@ public class UIController : MonoBehaviour
     public void ChangeImageColor(int index)
     {
         IndicatorImage.color = ColorPallete[index];
-        IndicatorImage.gameObject.GetComponent<Light2D>().intensity = .3f;
+        IndicatorImage.gameObject.GetComponent<Light2D>().intensity = .3f*2;
     }
 
     public void ChangeIntensity(float intensity)
     {
-        IndicatorImage.gameObject.GetComponent<Light2D>().intensity = intensity;
+        IndicatorImage.gameObject.GetComponent<Light2D>().intensity = intensity*2;
     }
 }
