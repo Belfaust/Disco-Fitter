@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuMenager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject creditsPanel;
+    
+    public GameObject creditsPanel;
     [SerializeField]
     public float delayyy;
     [SerializeField]
@@ -43,11 +43,6 @@ public class MenuMenager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void EnterGameplay(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
