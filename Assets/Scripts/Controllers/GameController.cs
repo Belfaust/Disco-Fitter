@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            if (_beatCount > 2)
+            if (_beatCount > 125)
             {
                 PlayerPrefs.GetInt("HighScore",0);
                 if (PlayerPrefs.GetInt("HighScore") < points)

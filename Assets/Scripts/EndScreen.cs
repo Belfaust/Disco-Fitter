@@ -9,6 +9,7 @@ public class EndScreen : MonoBehaviour
 {
     public GameObject Credits;
     public TextMeshProUGUI ScoreDisplay,HighScore;
+    public TextMeshProUGUI LeaveText;
 
     private void Start()
     {
@@ -28,12 +29,14 @@ public class EndScreen : MonoBehaviour
     {
         StartCoroutine(DisplayPoints());
         yield return new WaitForSeconds(2f);
-        while ( Credits.transform.position.y >  -350)
+        while ( Credits.transform.position.y >  -200)
         {
             
             Credits.transform.position -= new Vector3(0,100*Time.deltaTime,0);
             yield return new WaitForSeconds(0.01f);
         }
+        yield return new WaitForSeconds(2f);
+        LeaveText.gameObject.SetActive(true);
     }
 
     IEnumerator DisplayPoints()
@@ -41,7 +44,7 @@ public class EndScreen : MonoBehaviour
         while (true)
         {
             var currPoints =GameController.instance.points;
-            ScoreDisplay.text = "Your Earned Points : " + currPoints.ToString();
+            ScoreDisplay.text = "You Earned Points : " + currPoints.ToString();
             yield return new WaitForSeconds(.5f);
             if (currPoints > PlayerPrefs.GetInt("HighScore"))
             {
@@ -49,7 +52,7 @@ public class EndScreen : MonoBehaviour
             }
             else
             {
-                HighScore.text = "Current HighScore is: "+ PlayerPrefs.GetInt("HighScore");
+                HighScore.text = "Current HighScore is "+ PlayerPrefs.GetInt("HighScore");
             }
             yield return new WaitForSeconds(.5f);
         }
