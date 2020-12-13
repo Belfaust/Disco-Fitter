@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 87275262753e6f84faf8c417d85e8e3e
+  - enabled: 1
+    path: Assets/Scenes/WorkJuru.unity
+    guid: 3c159210b3a16a2439e084a6dfd4365f
   m_configObjects: {}

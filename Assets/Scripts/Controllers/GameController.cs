@@ -201,7 +201,7 @@ public class GameController : MonoBehaviour
         {
             CurrentTime -= Time.deltaTime;
             currentTime = CurrentTime;
-            if (currentTime < (timer * .7f))
+            if (currentTime < (timer * .8f))
             {
                 _uiController.ChangeIntensity(1-currentTime);
             }
