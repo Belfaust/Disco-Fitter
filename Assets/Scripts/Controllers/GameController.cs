@@ -206,6 +206,10 @@ public class GameController : MonoBehaviour
         {
             CurrentTime -= Time.deltaTime;
             currentTime = CurrentTime;
+            if (currentTime < (timer * .7f))
+            {
+                _uiController.ChangeIntensity(1-currentTime);
+            }
             _uiController.DisplayBeat(CurrentTime);
             GameCheck();
             yield return null;
